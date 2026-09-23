@@ -1,26 +1,131 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --font-sans: var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    /* Agriculture UI Kit Theme Colors */
+    --agri-dark-900: #142211;
+    --agri-dark-800: #1D3318;
+    --agri-dark-700: #264420;
+    --agri-forest: #2F5427;
+    --agri-primary: #4B7D3F;
+    --agri-leaf: #629E52;
+    --agri-accent: #8EC349;
+    --agri-lime: #A6D865;
+    
+    --agri-bg-light: #F4F7F2;
+    --agri-card-light: #FFFFFF;
+    --agri-border-light: #E0E8DC;
+    --agri-muted-text: #61735B;
+    --agri-dark-text: #192A15;
+
+    /* Status Accents */
+    --status-urgent-bg: #FEECEB;
+    --status-urgent-border: #FCA5A5;
+    --status-urgent-text: #DC2626;
+
+    --status-warn-bg: #FEF3C7;
+    --status-warn-border: #FCD34D;
+    --status-warn-text: #D97706;
+
+    --status-good-bg: #E8F5E9;
+    --status-good-border: #A5D6A7;
+    --status-good-text: #2E7D32;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #172714;
+    color: var(--agri-dark-text);
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    overscroll-behavior-y: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(75, 125, 63, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(75, 125, 63, 0.5);
+}
+
+/* Animated Scanning Laser */
+@keyframes scanLaser {
+  0% {
+    top: 5%;
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 92%;
+    opacity: 0.2;
+  }
+}
+
+.animate-scan-laser {
+  animation: scanLaser 2.2s ease-in-out infinite alternate;
+}
+
+/* Radar Pulse Animation */
+@keyframes agriPulse {
+  0% {
+    transform: scale(0.96);
+    box-shadow: 0 0 0 0 rgba(142, 195, 73, 0.7);
+  }
+  70% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 16px rgba(142, 195, 73, 0);
+  }
+  100% {
+    transform: scale(0.96);
+    box-shadow: 0 0 0 0 rgba(142, 195, 73, 0);
+  }
+}
+
+.animate-agri-pulse {
+  animation: agriPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Glassmorphism Styles */
+.glass-agri-dark {
+  background: rgba(22, 38, 18, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.glass-agri-light {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(224, 232, 220, 0.7);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Safe area insets for mobile */
+.safe-bottom {
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+.safe-top {
+  padding-top: max(12px, env(safe-area-inset-top));
 }
