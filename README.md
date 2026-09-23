@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AgriGuard • AI Plant Disease Detector
+
+A mobile-first web app that detects plant diseases from leaf photos and provides actionable organic and chemical solutions.
+
+## Features
+
+- **Instant Camera Capture**: Native device camera support (including Google Pixel & mobile browsers) plus photo gallery upload.
+- **Zero-Prompt Diagnosis**: Purely image-driven—no text input required from the user.
+- **Actionable Treatment Plans**:
+  - 🌿 **Organic & Biological Remedies**: Eco-safe steps and prevention.
+  - 🧪 **Chemical Controls**: Targeted active ingredients and application advice.
+  - 🩺 **Rapid Metrics**: Pathogen type, moisture factor, and spread risk.
+- **Hands-Free Audio**: Voice readout for field use.
+- **Field History**: Automatically saves scan reports on the device.
 
 ## Getting Started
 
-First, run the development server:
+### 1. Environment Setup
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Create a `.env` file in the project root:
+
+```env
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install & Run
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) on your desktop or `http://<your-local-ip>:3000` on your mobile device.
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Framework**: Next.js (App Router) + React 19
+- **Styling**: Tailwind CSS (Agriculture UI Kit theme)
+- **AI Engine**: Gemini Vision API
